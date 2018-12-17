@@ -1,24 +1,40 @@
-# README
+# Webflix - A competitor of Netflix
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Context: This project was done as an academic assignment, it's not suppose to be more than that, have fun exploring my mess! :joy:
 
-Things you may want to cover:
+## Development setup 
+For the development process I adopted Ruby on Rails v5, and PostgreSQL as a DBMS. 
 
-* Ruby version
+### 1) Clone repository
 
-* System dependencies
+    $ git@github.com:FranciscoJRSantos/webflix.git
 
-* Configuration
+or using HTTPS:
 
-* Database creation
+    $ git@github.com:FranciscoJRSantos/webflix.git
 
-* Database initialization
+### 2) Server setup - Rails
 
-* How to run the test suite
+#### 2.1) Install dependencies in the server - Bundle
+  Run: 
 
-* Services (job queues, cache servers, search engines, etc.)
+    $ bundle install
 
-* Deployment instructions
+#### 2.2) Setup database
+  Run:
+  
+    $ rails db:setup
 
-* ...
+### 2.3) Start server
+  Run:
+  
+    $ rails s 
+
+## Testing 
+
+I used [RSpec](http://rspec.info/) for testing the ruby code along with other
+utility gems.
+
+  Run tests:
+  
+    $ rspec
