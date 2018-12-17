@@ -1,0 +1,12 @@
+<div class="search">
+  <%= form_tag(request.original_url, :method => 'get') do %>
+    <%= text_field_tag :title, params[:title], placeholder: "Search title", value: "", class: "input" %>
+    <%= text_field_tag :director, params[:director], placeholder: "Search director", value: "", class: "input" %>
+    <%= text_field_tag :first_year, params[:first_year], placeholder: "Inital year of range", value: "", class: "input" %>
+    <%= text_field_tag :second_year, params[:second_year], placeholder: "Final year of range", value: "", class: "input" %>
+    <%= text_field_tag :category, params[:category], placeholder: "Search category", value: "", class: "input" %>
+    <%= radio_button_tag :order, "DESC", checked: true, class:"radio"%> Descending 
+    <%= radio_button_tag :order, "ASC", checked:false, class:"radio" %> Ascending 
+    <%= submit_tag "Search", :name => nil, class: "button" %>
+<% end %>
+</div>

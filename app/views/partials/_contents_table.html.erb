@@ -1,0 +1,34 @@
+<table class="table is-bordered is-hoverable">
+  <thead>
+    <tr>
+      <th colspan="1"> <b> Title </b> </th>
+      <th colspan="1"> <b> Director </b> </th>
+      <th colspan="1"> <b> Year </b> </th>
+      <th colspan="1"> <b> Category </b> </th>
+  </thead>
+  <tbody>
+    <% contents.each do |content| %>
+      <tr>
+        <td><%= link_to content.title, content %></td>
+        <td> <%= content.director %> </td>
+        <td> <%= content.year %> </td>
+        <td ><%= content .category %> </td> 
+        <% if current_user.is_manager? %>
+          <td><%= link_to 'Edit', edit_content_path(content) %></td>
+          <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <% if !content.user_content.first.nil? && content.user_content.first.user_id == current_user.id %>
+            <td> <%= link_to 'Remove from watch list', remove_watch_list_path(content) %> </td>
+          <% else %>
+            <td> <%= link_to 'Add to watch list', add_watch_list_path(content) %> </td>
+          <% end %>
+          <% if !content.user_content.first.nil? && content.user_content.first.favorite %>
+            <td> <%= link_to 'Remove from favorites', remove_favorite_path(content) %> </td>
+          <% else %>
+            <td> <%= link_to 'Add to favorites', add_favorite_path(content) %> </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<div class="section">
+  <div class="attributes">
+    <p> <b> Username: </b> <%= @user.username %> </p> 
+    <p> <b> Email: </b> <%= @user.email %> </p> 
+    <p> <b> Credit Card Number: </b> <%= @user.credit_card_number %> </p> 
+    <p> <b> Next Payment: </b> <%= @user.next_payment %> </p> 
+    <p> <b> Manager: </b> <%= @user.is_manager %> </p> 
+  </div>
+
+  <div class="favorites">
+    <h2> <b> Favorite Content </b> </h2>
+    <% @favorites.each do |favorite| %>
+      <p><%= link_to favorite.content.title, favorite.content %></p>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <div> <%= link_to('Edit profile', edit_user_path(current_user)) %> </div>
+    <div> <%= link_to('My Watch List', users_watch_list_path(current_user)) %> </div>
+    <div> <%= link_to('Change role', user_change_role_path(current_user)) %> </div>
+  </div>
+</div>

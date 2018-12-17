@@ -1,0 +1,14 @@
+<div class="navbar">
+  <div class="wrapper">
+    <% if user_signed_in? %>
+      <div class="item"> <%= link_to('Dashboard', dashboard_path) %> </div>
+      <div class="item"> <%= link_to('My Profile', user_path(current_user)) %> </div>
+      <div class="item"> <%= link_to('Contents', contents_path)%> </div>
+      <div class="item"> <%= link_to('Logout', destroy_user_session_path, method: :delete) %> </div>
+    <% else %>
+      <div class="item"> <%= link_to('Home Screen', root_path) %> </div>
+      <div class="item"> <%= link_to('Register', new_user_path) %> </div>
+      <div class="item"> <%= link_to('Login', new_user_session_path) %> </div>
+    <% end %>
+  </div>
+</div>

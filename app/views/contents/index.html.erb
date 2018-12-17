@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title">Contents</h1>
+
+<%= render 'partials/search_bar' %>
+<%= render 'partials/contents_table', contents: @contents %>
+
+<br>
+
+<% if current_user.is_manager %>
+  <%= link_to 'New Content', new_content_path %>
+<% end %>

@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"> <b> Title </b> </th>
+      <th colspan="1"> <b> Director </b> </th>
+      <th colspan="1"> <b> Year </b> </th>
+      <th colspan="1"> <b> Category </b> </th>
+  </thead>
+  <tbody>
+    <% @contents.each do |user_content| %>
+      <tr>
+        <td><%= link_to user_content.content.title, user_content.content %></td>
+        <td> <%= user_content.content.director %> </td>
+        <td> <%= user_content.content.year %> </td>
+        <td ><%= user_content.content.category %> </td> 
+        <% if current_user.is_manager? %>
+          <td><%= link_to 'Edit', edit_content_path(user_content.content) %></td>
+          <td><%= link_to 'Destroy', user_content.content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td> <%= link_to 'Remove from watch list', remove_watch_list_path(user_content.content) %> </td>
+          <% if user_content.favorite %>
+            <td> <%= link_to 'Remove from favorites', remove_favorite_path(user_content.content) %> </td>
+          <% else %>
+            <td> <%= link_to 'Add to favorites', add_favorite_path(user_content.content) %> </td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

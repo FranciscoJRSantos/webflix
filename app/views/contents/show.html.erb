@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+  <div class="attr">
+    <ul>
+      <li><b> Title </b> <%= @content.title %></li>
+      <li><b> Director </b> <%= @content.director %></li>
+      <li><b> Year </b> <%= @content.year %></li>
+      <li><b> Category </b> <%= @content .category %></li>
+    </ul>
+  </div>
+  <% if @content.file_path %>
+    <div class="poster">
+      <%= image_tag("/uploads/#{@content.file_path}") %>
+    </div>
+  <% end %>
+
+  <% if current_user.is_manager %>
+    <%= link_to 'Edit', edit_content_path(@content) %> |
+  <% end %>
+  <%= link_to 'Back', contents_path %>
+</div>

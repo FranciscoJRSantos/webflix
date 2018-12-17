@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.username %>,</h1>
+    <% if @payment_status == 'successful' %>
+      <p> We are happy to tell you that your payment has been successful! </p>
+    <% else %>
+      <p> We are sad to tell you that you payment has been unsuccessful! </p>
+    <% end %>
+    <p> Best regards, </p>
+    <h2> The Webflix Team </h2>
+  </body>
+</html>

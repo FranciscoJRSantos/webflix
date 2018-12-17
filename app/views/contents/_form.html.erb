@@ -1,0 +1,44 @@
+<%= form_with(model: content, local: true) do |form| %>
+  <% if content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <div class="field">
+      <%= form.label :title, class: "label" %>
+      <%= form.text_field :title, value: content.title, class: "input"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :director, class: "label" %>
+      <%= form.text_field :director, value: content.director, class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :year, class: "label" %>
+      <%= form.text_field :year, value: content.year, class: "input"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :category, class: "label" %>
+      <%= form.text_field :category, value: content.category, class: "input"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :file_path, class: "label" %>
+      <%= form.file_field :file_path, value: "public/uploads/#{content.file_path}", accept: 'image/png,image/jpg,image/jpeg'%>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button"%>
+  </div>
+<% end %>

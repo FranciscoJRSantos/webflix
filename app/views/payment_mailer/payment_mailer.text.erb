@@ -1,0 +1,9 @@
+<%= @user.username %>,
+
+<% if @payment_status == 'successful' %>
+  We are happy to tell you that your payment has been successful!
+<% else %>
+  We are sad to tell you that you payment has been unsuccessful! 
+<% end %>
+Best regards,
+The Webflix Team
